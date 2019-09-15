@@ -29,7 +29,10 @@ pipeline {
     }
     stage('build') {
       steps {
-        build 'myjob'
+        script {
+          sh 'mvn -B -DskipTests clean package'
+        }
+
       }
     }
   }
